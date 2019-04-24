@@ -1,0 +1,49 @@
+<html>
+	
+	<head>
+		<script src='aframe.min.js'> </script>
+		<script src='aframe-ar.js'> </script>
+		
+		
+			<script>
+				var obj_link = prompt("Please enter obj link", "/path/to/name_of_file.obj");
+				console.log(obj_link);
+				var mtl_link = prompt("Please enter mtl link", "/path/to/name_of_file.mtl");
+				console.log(mtl_link);
+			</script>
+	</head>
+
+	<body style='margin : 10px; innerwidth: 640; innerheight: 480; overflow: hidden;'>
+		
+		
+		
+		<a-scene stats embedded arjs=’sourceType: webcam;’detectionMode: mono_and_matrix; matrixCodeType: 3x3; maxDetectionRate: 30; canvasWidth: 180; canvasHeight: 120'>   
+		
+			<!--<a-box scale= '0.5 0.5 0.5' position='0 0.5 0' material='opacity: 0.8;'></a-box>
+			<a-sphere scale= '0.5 0.5 0.5' position="0 1.25 0" radius="1.25" color="#EF2D5E"></a-sphere>-->
+			<a-marker-camera preset='hiro'>
+				
+				<!--<a-text value="Hello, World!"></a-text>-->
+				
+				<a-entity 
+					
+					obj-model="obj: url(obj_link); 
+					mtl: url(mtl_link)"; rotation='0 0 90'; scale='0.01 0.01 0.01'; position='0 0 0';>
+					
+					<!--<<a-animation attribute="rotation"
+						dur="6000"
+						easing="linear"
+						from="0 0 0"
+						to="0 360 0"
+						repeat="indefinite">
+					</a-animation>-->
+				</a-entity>
+				
+				
+				
+			</a-marker-camera>
+		
+		</a-scene>
+	</body>
+
+</html>
